@@ -1,0 +1,57 @@
+﻿@model ICollection<PicturesWithProductNameModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<section class="w3-gallery py-5">
+    <div class="container py-md-5">
+
+        <ul class="portfolio-area clearfix p-0 m-0">
+
+            @if (Model.Count > 0)
+            {
+                @foreach (var item in Model)
+                {
+                    <li class="portfolio-item2 content" data-id="id-1" data-type="cat-item-1">
+                        <span class="image-block">
+
+                            <a class="image-zoom" asp-action="UpdatePicture" asp-controller="Picture" asp-route-id="@item.Id">
+                                <div class="content-overlay"></div>
+                                <img src="@item.PictureLink" class="img-fluid w3layouts agileits img-fluid" alt="portfolio-img">
+                                <div class="content-details fadeIn-bottom">
+                                    <h3 class="content-title">@item.ProductName</h3>
+                                </div>
+                            </a>
+                        </span>
+                        <div class="text-center">
+                            <h4>@item.Id @item.PictureLink</h4>
+                        </div>
+                        <br />
+
+                        <a asp-action="DeletePicture" asp-controller="Picture" asp-route-id="@item.Id" class="btn btn-dark btn-sm">Sil</a>
+                    </li>
+                }
+
+            }
+            else
+            {
+                <p> Ürün bulunamadı</p>
+
+            }
+
+
+
+        </ul>
+        
+        <a asp-action="AddPicture" asp-controller="Picture" asp-route-id="@Model.FirstOrDefault().ProductId" class="btn btn-dark btn-sm">Ekle</a>
+        <!--end portfolio-area -->
+    </div>
+    <!-- //gallery container -->
+</section>
+
+
+

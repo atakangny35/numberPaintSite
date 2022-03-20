@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "owl-carousel@1.3.3",
+      "destination": "wwwroot/owl-carousel/"
+    },
+    {
+      "library": "jquery@3.6.0",
+      "destination": "wwwroot/js/jquery/"
+    },
+    {
+      "library": "twitter-bootstrap@5.1.3",
+      "destination": "wwwroot/twitter-bootstrap/",
+      "files": [
+        "js/bootstrap.min.js",
+        "js/bootstrap.bundle.min.js"
+      ]
+    }
+  ]
+}

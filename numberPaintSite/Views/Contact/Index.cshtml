@@ -1,0 +1,76 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="w3l-contact-10 py-5" id="contact">
+    <div class="form-41-mian pt-lg-4 pt-md-3 pb-4">
+        <div class="container">
+            <div class="heading text-center mx-auto">
+                <h5 class="title-subhny text-center mb-2">İletişim</h5>
+                <p class="mb-5">
+                    bilgi almak için mail atın veya Whatsapp üzerinden bilgi alın!!
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 contacts-5-grid-main section-gap mb-lg-0 mb-4 pr-lg-5">
+                    <div class="contacts-5-grid">
+                        <div class="map-content-5">
+                            <div class="contact-type">
+                                <div class="address-grid mb-3">
+                                    <span class="pos-icon">
+                                        <span class="fa fa-map"></span>
+                                    </span>
+                                    <div class="ad-right">
+                                        <h6>Address</h6>
+                                        <p>123 sokak my fake addres izmir/turkey</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 contacts-5-grid-main section-gap mb-lg-0 mb-4 pr-lg-5">
+                    <div class="contacts-5-grid">
+                        <div class="map-content-5">
+                            <div class="contact-type">
+                                <div class="address-grid mb-3">
+                                    <span class="pos-icon">
+                                        <span class="fa fa-envelope">
+
+                                        </span>
+                                    </span>
+                                    <div class="ad-right">
+                                        <h6>Email</h6>
+                                        <a href="mailto:mailone@example.com" class="link1">@Model.Email</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 contacts-5-grid-main section-gap mb-lg-0 mb-4 pr-lg-5">
+                    <div class="contacts-5-grid">
+                        <div class="map-content-5">
+                            <div class="contact-type">
+                                <div class="address-grid">
+                                    <span class="pos-icon">
+                                        <span class="fa fa-headphones"></span>
+                                    </span>
+                                    <div class="ad-right">
+                                        <h6>Phone</h6>
+                                        <a href="tel:+12 424-096-439" class="link1">@Model.PhoneNumber</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        <!-- //contacts-5-grid -->
+    </div>
+</div>

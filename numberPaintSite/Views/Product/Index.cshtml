@@ -1,0 +1,98 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc
+@using X.PagedList.Mvc.Core.Common
+@model X.PagedList.IPagedList<ProductListWithCategoryModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    string name;
+    if (Model.FirstOrDefault() == null)
+    {
+        name = "s";
+    }
+    else
+    {
+        name = Model.FirstOrDefault().CategoryName;
+    }
+}
+
+
+<div class="row">
+
+    <div class="col-md-2 col-lg-3">
+        <h6 class=""><strong>Categories</strong></h6>
+        <br />
+        <div class="list-group">
+
+            @foreach (var category in (IEnumerable<Category>)ViewBag.categories)
+            {
+                if (category.CategoryName == name)
+                {
+                    <a asp-controller="Product" asp-action="Index" asp-route-id="@category.Id" class="list-group-item list-group-item-action active">@category.CategoryName</a>
+                }
+                else
+                {
+                    <a asp-controller="Product" asp-action="Index" asp-route-id="@category.Id" class="list-group-item list-group-item-action">@category.CategoryName</a>
+                }
+
+            }
+
+        </div>
+    </div>
+
+    <div class="col-md-10 col-lg-9">
+
+        <ul class="portfolio-area clearfix p-0 m-0">
+
+            @if (Model.Count > 0)
+            {
+                @foreach (var item in Model)
+                {
+                    <li class="portfolio-item2 content" data-id="id-1" data-type="cat-item-1">
+                        <span class="image-block">
+
+                            <a class="image-zoom" href="assets/images/p1.jpg" data-gal="prettyPhoto[gallery]">
+                                <div class="content-overlay"></div>
+                                <img src="@item.PictureUrl" class="img-fluid w3layouts agileits img-fluid" alt="portfolio-img">
+                                <div class="content-details fadeIn-bottom">
+                                    <h3 class="content-title">@item.Name</h3>
+                                </div>
+                            </a>
+                        </span>
+                        <div class="text-center">
+                            <h4>@item.Size</h4>
+                        </div>
+                    </li>
+                }
+            }
+            else
+            {
+                <br />
+                <p> Ürün bulunamadı</p>
+
+            }
+
+
+
+        </ul>
+        @Html.PagedListPager((IPagedList)Model, Page => Url.Action("Index", new { Page }), new PagedListRenderOptions
+  {
+      LiElementClasses = new List<string>
+      {"page-link"}
+
+
+  }
+
+  )
+        
+    </div>
+
+</div>
+
+
+
+
+
